@@ -1,0 +1,43 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Read More
+{% endblock %}
+{% block content %}
+
+<div class="row">
+    <div class="col-sm-2"></div>
+
+    <!-- Detailed News Section Start -->
+    {% if RD %}
+    {% for x in RD %}
+
+    <div class="col-sm-8 py-5">
+        <h1>{{x.nhead}}</h1>
+        <p class="card-text fw-bold"><small class="text-muted"><i>{{x.ndate}}</i></small></p>
+
+         <!-- Share button Section Start -->
+      <div class="sharethis-inline-share-buttons"></div> <br>
+         <!-- Share button Section End -->
+    <!-- ****************************************************************************** -->
+
+        <div class="card mb-3 border-0">
+
+  <img src="/{{x.npic}}" height="450px" class="card-img-top" alt="...">
+  <div class="card-body">
+      <p> <small class="card-title text-muted fw-bold" style="font-size:15px;"><i>City : {{x.ncity}}</i></small></p>
+    <p class="card-text" >{{x.ndes | safe}}</p>
+
+  </div>
+</div>
+
+    </div>
+
+    {% endfor %}
+    {% endif %}
+
+    <!-- Detailed News Section Start -->
+    <!-- ****************************************************************************** -->
+    <div class="col-sm-2"></div>
+</div>
+{% endblock%}

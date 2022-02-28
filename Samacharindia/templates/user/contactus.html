@@ -1,0 +1,142 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Contact Us
+{% endblock %}
+
+{% block content %}
+
+<style>
+    .*
+    {
+        box-sizing:borderbox;
+    }
+    .form
+    {
+        min-height:470px;
+        border:1px solid #dedede;
+    }
+    .contact
+    {
+        min-height:470px;
+    }
+ .input
+    {
+        border:1px solid grey;
+    }
+  .info
+  {
+
+        min-height:470px;
+        padding-left:40px;
+        padding-top:40px;
+        margin-top:50px;
+        margin-bottom:50px;
+  }
+  .outer
+  {
+    width: 100%;
+
+    padding-top:20px;
+    min-height:400px;
+  }
+  .inner
+  {
+    background:white;
+    width: 100%;
+    min-height:400px;
+
+  }
+  .map
+  {
+    background:white;
+  }
+  .info a
+  {
+    text-decoration:none;
+    color:black;
+    display:inline-block;
+  }
+
+  .info a:hover
+  {
+    color:#7a2ee7;
+    transform:scale(1.1);
+    transition:.5s;
+  }
+</style>
+<div class="container-fluid bg-light outer">
+    <h3 class=" text-center fw-bold font" style="letter-spacing:2px; ">
+                <span style="border-bottom:3px solid #01c3cc;">Con</span><span class="gradientText">tact Us</span>
+                <i class="fa fa-handshake-o text-default"></i>
+    </h3>
+    <p class="text-center text-muted">You may contact us by contact number or filling in this form any time you need</p>
+    <!-- ************************************************* -->
+    <!-- alert sectiom start -->
+    {% if S %}
+    <div class="alert alert-success text-center">
+        Thanks For Making Contact With Us, Our Customer Executive Will Contact You Soon...
+    </div>
+    {% endif %}
+    <!-- alert section End -->
+    <!-- ************************************************* -->
+    <div class="container inner px-5">
+        <div class="row">
+
+    <!-- ************************************************* -->
+    <!-- Contact Us form start -->
+    <div class="col-md-7 form my-5 bg-light">
+
+        <form method="post" autocomplete="off" class="px-5 py-5">
+            <h4 class="pb-2"><span class="borderblue">Send </span> Your <span class="gradientText">Message</span></h4>
+            {% csrf_token %} <!--cross site reforgery-->
+            <label>Name:</label> <input type="text" class="form-control p-1 mb-3 input"  required  name="name"
+                                 placeholder="Enter Your Name">
+
+            <label>Mobile:</label> <input type="tel" class="form-control p-1 mb-3 input" name="mobile" required maxlength="10"
+                                   placeholder="Enter Your Mobile Number">
+
+            <label>Email: </label> <input type="email" class="form-control p-1 mb-3 input" name="email" required
+                                  placeholder="Enter Your Email">
+
+            <label>Message:</label> <textarea placeholder="Type Your Message" rows="5" required style="resize:none;" class="form-control p-1 mb-4 input" name="msg"></textarea>
+             <input type="submit" Value="SAVE" class="btn fw-bold form-control" id="button2" >
+        </form>
+    </div>
+    <!-- Contact Us form End -->
+
+<!-- ************************************************* -->
+            <div class="col-md-1"></div>
+<!-- Contact Us Info start -->
+    <div class="col-md-4 info">
+        <h4>Contact <span class="gradientText borderblack">Info</span></h4><br>
+        <h6 style="color:#7a2ee7;"><i class=" fa fa-map-marker" style="font-size:25px;" ></i> Office <span>Address</span></h6>
+        <span>Plot No-76, Trilochan Bazar,<br>
+            Varanasi, Uttar Pradesh 221001</span><br><br>
+        <h6 style="color:#7a2ee7;"><i class=" fa fa-phone" style="font-size:20px;"></i> Call Us</h6>
+        <a href="tel: +91 9189665545">9189665545</a><br>
+        <a href="tel: +91 7890667754">9189665545</a><br><br>
+        <h6 style="color:#7a2ee7;"><i class=" fa fa-envelope" style="font-size:20px;"></i> Mail Us</h6>
+        <a href="mailto:Samacharindia@gmail.com">Samacharindia@gmail.com</a>
+    </div>
+
+<!-- Contact Us Info End -->
+<!-- ************************************************* -->
+        </div>
+    </div>
+</div>
+
+<!-- ************************************************* -->
+<!-- Map Section start -->
+<div class="row ps-1 pe-0 py-4 my-5 map">
+    <h4 class="pb-4 text-center">Find <span class="borderblue"> Us On </span> <span class="gradientText">Google Map</span></h4>
+        <div class="col-sm-12">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3606.5397722539033!2d83.02097771501195!3d25.31966228383944!
+            2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x398e2f9046485c97%3A0xca596149a4786101!2sSamachar%20India!5e0!3m2!1sen!
+            2sin!4v1642962293491!5m2!1sen!2sin" width="100%" height="400" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+        </div>
+
+</div>
+<!-- Map section End -->
+<!-- ************************************************* -->
+{% endblock %}

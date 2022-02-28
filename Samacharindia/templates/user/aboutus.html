@@ -1,0 +1,95 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+About Us
+{% endblock %}
+{% block content %}
+
+<div class="row py-3">
+    <div class="col-sm-3"></div>
+    <div class="col-sm-6 h3 fw-bold text-center">
+        <span class="font borderblue">ABOUT</span>&nbsp; <b class="font gradientText"> US</b>
+    </div>
+    <div class="col-sm-3"></div>
+    <div class="row py-4 my-2 text-center">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            TDN never works on rumours.
+            It transfers the real news to the people.
+            It provides detailed information about issues taking place all over the world.
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+    <div class="row " style="font-size:13px;min-height:300px">
+        <div class="col-sm-3"></div>
+        <div class="col-sm-6">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="card mb-3" style="box-shadow:2px 0 8px rgba(0,0,0,0.3);">
+                        <div class="row g-0">
+                            <div class="col-md-4 px-3">
+                                <center>
+                                <img src="{% static 'images/wifi.png' %}"  class="img-fluid  rounded-start" alt="...">
+                                </center>
+                            </div>
+                            <div class="col-md-8">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Large <span class="gradientText fw-bold">Coverage</span></h5>
+                                    <p class="card-text "> Samachar India has large coverage area, it highlights the issues taking place most frequently.
+                                        Works for the people and convince them with the information provided.</p>
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" >
+                    <div class="card mb-3" style="box-shadow:2px 0 8px rgba(0,0,0,0.3);">
+                        <div class="row g-0">
+
+                            <div class="col-md-8 py-4">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Real <span class="gradientText fw-bold">News</span></h5>
+                                    <p class="card-text "> Samachar India provides real news to the people. Its main objective is to grasp people's attention.</p>
+
+                                  </div>
+                            </div>
+
+                            <div class="col-md-4 px-3 py-2" >
+                              <center>
+                                  <img src="{% static 'images/fakenews.jpg' %}"  class="img-fluid  rounded-start" alt="...">
+                              </center>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-12" >
+                    <div class="card mb-3" style="box-shadow:2px 0 8px rgba(0,0,0,0.3);">
+                        <div class="row g-0">
+                            <div class="col-md-4 py-3">
+                                <center>
+                                <img src="{% static 'images/easyread.jpg' %}"  class="img-fluid  rounded-start" alt="...">
+                                </center>
+                            </div>
+                            <div class="col-md-8 py-3">
+                                  <div class="card-body">
+                                      <h5 class="card-title">Reader's <span class="gradientText fw-bold">Friendly</span></h5>
+                                    <p class="card-text "> Samachar India believes that factfull information is always better than more information.
+                                        It provides news with humor, terseness, descriptive and with good litracy.</p>
+
+                                  </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-3"></div>
+    </div>
+</div>
+
+{% endblock %}

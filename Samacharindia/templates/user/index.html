@@ -1,0 +1,133 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Home
+{% endblock %}
+
+{% block content %}
+<link href="{% static 'images/home.png' %}" rel="icon"/>
+ <script src="{% static 'js/bootstrap.js'%}"></script>
+    <link href="{% static 'css/bootstrap.css'%}" rel="stylesheet" >
+    <link href="{% static 'css/font-awesome.css'%}" rel="stylesheet" >
+
+<!-- Slider Start -->
+<div class="row ">
+    <div class="col-sm-12 p-0">
+        <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="3" aria-label="Slide 4"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="4" aria-label="Slide 5"></button>
+  </div>
+
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="{% static 'images/breaking.jpg' %}" style="height:500px;" class="d-block w-100" alt="...">
+      <div class="carousel-caption d-none d-md-block">
+
+      </div>
+    </div>
+    {% if sD %}
+            {% for x in sD %}
+                <div class="carousel-item">
+                    <img src="/{{x.spic}}" style="height:500px;" class="d-block w-100"
+                         alt="...">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5 class="fw-bold">Breaking News</h5>
+                        <h6 class="fw-bold">{{x.stitle}}</h6>
+                        <p class="fw-bold">{{x.sdate}}</p>
+                    </div>
+                </div>
+                {% endfor %}
+            {% endif %}
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
+    </div>
+</div>
+
+<!-- Slider End -->
+
+<!--********************************************************** -->
+
+<!-- Notification Start -->
+<div class="row pt-2" style="background:#01c3cc;">
+    <div class="col-sm-12">
+  <marquee>
+    {% if noti %}
+    {% for x in noti %}
+    <img src="{% static 'images/new_flash.gif '%}" height="50px" width="50px"><big>{{x.ndes}}</big> || <small>{{x.ndate}}</small>
+    {% endfor%}
+    {% endif %}
+  </marquee>
+    </div>
+</div>
+<!-- Notification End -->
+
+<!--********************************************************** -->
+
+<!-- Category Start -->
+<div class="row py-5">
+  <div class="col-sm-1"></div>
+  <div class="col-sm-10">
+    <div class="row">
+      <!-- if any data is present in D then if block will execute -->
+      {% if cD %}
+      {% for x in cD %}
+      <div class="col-sm-3">
+        <div class="card" >
+  <img src="/{{x.CPic}}" class="card-img-top" style="height:200px;" alt="...">
+  <div class="card-body">
+    <a href="/user/mynews?msg={{x.id}}" class="btn" id="button">{{x.CName}}</a>
+  </div>
+</div>
+      </div>
+      {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+  <div class="col-sm-1"></div>
+</div>
+
+<!-- Category End -->
+
+<!--********************************************************** -->
+
+<!-- Latest Updates Coding Start -->
+<div class="row latestnews bg-light p-3">
+  <h2 class="text-center mb-5"><span class="borderblue font">Latest</span> <b class="borderblack gradientText font" style=" color:#d81b60;"> Updates</b></h2>
+  {% if nD %}
+  {% for x in nD %}
+  <div class="col-sm-3 mt-4">
+    <div class="card w-100 h-100" style="font-size:14px;">
+  <img src="/{{x.npic}}" class="card-img-top img-fluid w-100" style="height:250px;" alt="...">
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h5>{{x.nhead}}</h5>
+    <b style="font-size:14px;"> City : </b>{{x.ncity}}<br>
+    <p class="card-text" style="font-size:15px;">{{x.nsubject|slice:":120"}} . . .</p>
+    <b class="text-muted" style="font-size:14px;"> Date :  {{x.ndate}} </b><br>
+     <!-- To get id when click on the Read More button use this href-->
+    <a href="/user/readmore?msg={{x.id}}" class="btn" id="button">Read More </a>
+  </div>
+</div>
+  </div>
+  {% endfor %}
+  {% endif %}
+
+</div>
+
+<!-- Latest Updates Coding End -->
+
+<!--********************************************************** -->
+
+{%endblock%}

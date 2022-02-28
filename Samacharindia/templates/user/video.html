@@ -1,0 +1,60 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Videos
+{% endblock %}
+{% block content %}
+<style>
+.category
+    {
+        min-height:500px;
+
+    }
+
+    .list-group-item-action:hover
+    {
+        background-image:linear-gradient(to bottom right,#00c3cc,#0bb4d2,#2588de,#3078e2,#4b5be2,#6940e5,#7d2ae7);
+        color:white;
+    }
+
+</style>
+
+<div class="row my-5">
+    <h2 class="text-center font ">Vi<span class="gradientText">deos</span></h2>
+
+    <div class="col-sm-2 pt-4 category bg-light" >
+            <h2 class="font text-center gradient-color py-1" style="color:white; font-size:30px;">Cate<span >gory</span></h2>
+               <div class="list-group">
+                    <a href="/user/video/" class="list-group-item list-group-item-action" aria-current="true">All</a>
+                   {% if cD %}
+                   {% for x in cD %}
+                    <a href="/user/video?msg={{x.id}}" class="list-group-item list-group-item-action">{{x.CName}}</a>
+                   {% endfor%}
+                   {% endif  %}
+    </div>
+        </div>
+    <div class="col-sm-10">
+        <div class="row bg-light" style="min-height:300px;">
+   {% if vD %}
+  {% for x in vD %}
+            <div class="col-sm-3 mt-4">
+                <div class="card w-100 h-100" style="font-size:14px;">
+
+  <iframe src="{{x.vlink}}" height="250px" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div class="card-body">
+    <h5 class="card-title"></h5>
+    <h5 style="font-size:16px;">{{x.vtitle}}</h5>
+    <p class="card-text" style="font-size:14px;">{{x.vnews}}</p>
+    <i class="text-muted" style="font-size:14px;">{{x.vcategory}}</i><br>
+    <i class="text-muted" style="font-size:14px;"> Date :  {{x.vdate}} </i><br>
+  </div>
+</div>
+            </div>
+            {% endfor %}
+            {% endif %}
+
+        </div>
+    </div>
+
+</div>
+{% endblock %}
